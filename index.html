@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Problem Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .description {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Problem Solver</h1>
+        <input type="text" id="searchBox" placeholder="Enter your health issue..." onkeyup="searchHealthIssue()">
+        <div id="result"></div>
+        <p class="description">
+            This website provides solutions to health-related problems, including first steps, primary medication, symptoms, and nearby hospital facilities with location and contact details.
+        </p>
+    </div>
+
+    <script>
+        function searchHealthIssue() {
+            let query = document.getElementById("searchBox").value.toLowerCase();
+            let resultDiv = document.getElementById("result");
+            
+            let healthData = {
+                "fever": "First step: Drink plenty of fluids and rest. Medication: Paracetamol. Symptoms: High temperature, chills, sweating.",
+                "headache": "First step: Rest in a quiet, dark room. Medication: Ibuprofen or acetaminophen. Symptoms: Pain in the head, sensitivity to light.",
+                "cough": "First step: Drink warm fluids. Medication: Cough syrup or honey. Symptoms: Dry or wet cough, sore throat."
+            };
+            
+            if (healthData[query]) {
+                resultDiv.innerHTML = healthData[query];
+            } else {
+                resultDiv.innerHTML = "No data found. Try a different query.";
+            }
+        }
+    </script>
+</body>
+</html>
